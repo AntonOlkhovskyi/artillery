@@ -1,0 +1,24 @@
+{
+  "name": "gcp-cloud-functions-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "artillery": "1.6.0-26"
+  },
+  "devDependencies": {
+    "artillery-plugin-expect": "1.2.1"
+  },
+  "scripts": {
+    "test": "test",
+    "start": "artillery run scenario.yaml",
+    "start:local": "artillery run scenario.local.yaml",
+    "start:puppeteer:local": "artillery run puppeteer.local.yaml",
+    "start:puppeteer:prod": "artillery run puppeteer.prod.yaml",
+    "start:splash:preprod": "artillery run splash.pre-prod.yaml",
+    "start:pre-prod": "artillery run pre-prod.yaml",
+    "start:prod": "artillery run prod.yaml"
+  },
+  "author": "",
+  "license": "ISC"
+}

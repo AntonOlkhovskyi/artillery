@@ -1,0 +1,15 @@
+config:
+  target: "http://localhost:3000/dollar-street"
+  phases:
+    - duration: 10
+      arrivalRate: 3
+  processor: "./scenario.js"
+scenarios:
+  - flow:
+    # Call setupSomeData
+    - function: "setupQuery"
+    - get:
+        headers:
+          Referer: "http://localhost:3000/dollar-street/matrix"
+        url: "/v1/save-pinned-places?resolution=480x480&places={{ query }}"
+        afterResponse: "afterResponse"

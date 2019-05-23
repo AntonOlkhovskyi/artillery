@@ -1,0 +1,126 @@
+config:
+  target: "http://35.195.142.163"
+  plugins:
+    expect: {}
+  #http:
+    #timeout: 30
+  phases:
+    - duration: 360
+      arrivalRate: 5
+  processor: "./splash.scenario.js"
+scenarios:
+  - flow:
+    - loop:
+      - get:
+          url: "/dollar-street/v1/home-media?placeId={{ $loopElement }}&resolution=480x480&lang=en"
+          capture:
+            - json: "$.success"
+              as: success
+          expect:
+            - statusCode: 200
+            - contentType: application/json; charset=utf-8
+            - hasProperty: success
+            - equals:
+              - "true"
+          afterResponse: "afterResponse"
+      over:
+        - 5c6282334c4535f7bf2bd54b
+        - 5c61e86a4c4535f7bf2bd54a
+        - 5c58747f85e8f4b8de7a0b29
+        - 5c4dd354c1ba0000261cd12c
+        - 5c486257be1c0c005afdf254
+        - 5c47447fad3c294471ba8522
+        - 5c33894eedf81938b834f471
+        - 5c293d8798301a3518184a13
+        - 5c1cde144d751730cea6c252
+        - 5c1c0084897b572d89bb188e
+        - 5c140ed781693e2ced231184
+        - 5c0c1d4a5715802b2ab9bc35
+        - 5c0ab894f0347f2692ea4a6a
+        - 5c098afcd6057c267c6c8cbf
+        - 5c053938da03da22953534c6
+        - 5bfc584fac45df1ac4a51901
+        - 5bfc564036b3b21afb10aef6
+        - 5bf86177ac45df1ac4a518ec
+        - 5bf7d30c721c8a18ca57ef38
+        - 5bedc457e4c348160de010f4
+        - 5be47dfde7d725132fe61519
+        - 5be318da54a51b1036e2f1cc
+        - 5be1daa518ad140e34d2e4c2
+        - 5bdeddbfde73040b1111d3b4
+        - 5bdb00856f874104605af8c9
+        - 5bd8bb2e00cdc50481afe51d
+        - 5bd6205ca36e53014cef6c1d
+        - 5bca3b8aa637ad7476753a37
+        - 5bc8b632d983566b0799ecd0
+        - 5bc789db6e4d3b6fc4902cac
+        - 5bc73e5fb637c5712d14a194
+        - 5bc34d9e04838b6b1df9dcf4
+        - 5bc250b8d983566b0799eca3
+        - 5bc242aa0c53036b3eda5459
+        - 5bbe8244f704e95e2d6fa2fc
+        - 5bbe717cd965ba5e221beb75
+        - 5bbd1c4ad965ba5e221beb63
+        - 5bb12ca1ea4a195b3af53e2f
+        - 5b86ce2b36b9e54bfab04711
+        - 5b86c9ef36b9e54bfab04710
+        - 5b86c54b36b9e54bfab0470f
+        - 5b86c0a587641d4c1b1d3b03
+        - 5b7fbf438b840848a7211094
+        - 5b72d9c4ee6da9436bf7beb0
+        - 5b717df39b05a616d337c0a6
+        - 5b7159cf9b05a616d337bd8d
+        - 5b6a005205181017bc2ca547
+        - 5b59fe6f28f40d093cffe418
+        - 5b4a5b0dd2eda20229529c34
+        - 5b4a58c60ddec601dc986de6
+        - 5b31096b2cebf2289f538c57
+        - 5b310715e2b11428b5a2ab49
+        - 5b3104062cebf2289f538c55
+        - 5b26d49ecceb282284cca831
+        - 5afed3c2c1c65a5c0a125a9f
+        - 5afec1cbb8b9fb7b612e568b
+        - 5afeb591d2591f5bf43273ad
+        - 5afe9ed0c1c65a5c0a1259f9
+        - 5afc394dd23f8e5bffa24759
+        - 5afc313fd23f8e5bffa24758
+        - 5afc10583cbd095c15ce25da
+        - 5afc0a293cbd095c15ce222c
+        - 5afc01ac3cbd095c15ce222b
+        - 5af989a0d23f8e5bffa24323
+        - 5af9795ec1c65a5c0a125872
+        - 5af9640dd23f8e5bffa24322
+        - 5af95e323cbd095c15ce1e28
+        - 5af59161ba48693f1c1666cd
+        - 5af58abb13614e3f3ba57116
+        - 5af584edba48693f1c1666cc
+        - 5af57bddba48693f1c1666cb
+        - 5af572e88149763f65619705
+        - 5af3025013614e3f3ba56d68
+        - 5af2d0348149763f656192ef
+        - 5af2cd218149763f656192ee
+        - 5af2c2d313614e3f3ba56c6f
+        - 5af2bd4c13614e3f3ba56c6e
+        - 5af0648364d0531ec6f38dc2
+        - 5af061a064d0531ec6f38dc1
+        - 5af04da164d0531ec6f38dc0
+        - 5af042411fad761b6aa4ed7f
+        - 5af02a3f8ab4151b759f2e6b
+        - 5af01bc71fad761b6aa4ed71
+        - 5aedf4201fad761b6aa4ed70
+        - 5aeb182f1fad761b6aa4ed6f
+        - 5aeb106b64d0531ec6f38d30
+        - 5aeb02511fad761b6aa4ec94
+        - 5aeae7fc34be341b0137b221
+        - 5ae9bd1ddfc9a60cd028f094
+        - 5ae9ad04dfc9a60cd028f093
+        - 5ae999f65464290c87241a41
+        - 5ae98934e769fb00141852fc
+        - 5ae623f643b906000ea46217
+        - 5ae1cd2c5de317001f306dc5
+        - 5ae1c6e07634de002a245206
+        - 5a4e3360867a270addc4c43d
+        - 5a4bd7456bd15c0af2c711dc
+        - 5a4aa86a6bd15c0af2c71117
+        - 59ecfe43df37f40122cb53d3
+        - 59bba7b93821db006dc0c485

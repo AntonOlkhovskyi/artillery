@@ -1,0 +1,27 @@
+config:
+  target: "http://35.195.21.152:3000"
+  plugins:
+    expect: {}
+  #http:
+    #timeout: 30
+  phases:
+    - duration: 600
+      arrivalRate: 4
+  processor: "./splash.scenario.js"
+scenarios:
+  - flow:
+    - loop:
+      - get:
+          url: "/?embedId={{ $loopElement }}&imageLenght=3&baseUrl=http://34.76.150.220/dollar-street"
+          capture:
+            - json: "$.success"
+              as: success
+          expect:
+            - statusCode: 200
+            - contentType: application/json; charset=utf-8
+            - hasProperty: success
+            - equals:
+              - "true"
+          afterResponse: "afterResponse"
+      over:
+        - 5b7c657a4194380d85126350

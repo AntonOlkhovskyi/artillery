@@ -1,0 +1,21 @@
+config:
+  target: "http://34.76.89.209:8050"
+  plugins:
+    expect: {}
+  #http:
+    #timeout: 30
+  phases:
+    - duration: 360
+      arrivalRate: 3
+  processor: "./splash.scenario.js"
+scenarios:
+  - flow:
+    - loop:
+      - get:
+          url: "/render.jpeg?viewport=1200x830&wait=2&images=1&expand=1&timeout=90.0&quality=95&width=1200&height=650&url=http%3A%2F%2F35.205.170.3%2Fdollar-street%2Fmatrix%3Fembed%3D{{ $loopElement }}%26splash%3Dtrue"
+          expect:
+            - statusCode: 200
+            - contentType: image/jpeg
+          afterResponse: "afterResponse"
+      over:
+        - 5b7c657a4194380d85126350
