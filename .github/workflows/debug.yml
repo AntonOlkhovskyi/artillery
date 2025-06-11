@@ -10,7 +10,15 @@ jobs:
     name: Run E2E STAGEFCM_NORAM
     if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.labels.*.name, 'STAGEFCM_NORAM')
     runs-on: self-hosted
+    steps:
+      - name: Echo suite name
+        run: |
+          echo "Suite:}"
   stage_noram:
     name: Run E2E STAGE_NORAM
     if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.labels.*.name, 'STAGE_NORAM')
     runs-on: self-hosted
+    steps:
+      - name: Echo suite name
+        run: |
+          echo "Suite"
