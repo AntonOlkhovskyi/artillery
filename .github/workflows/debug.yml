@@ -1,15 +1,16 @@
-name: e2e-debug
+name: tony-debug
+
 on:
+  pull_request:
+    branches: ["dev"]
+    types: [labeled, synchronize, opened, reopened]
   workflow_dispatch:
 jobs:
-  run-suites:
-    name: Set up an environment
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        suites: ${{ fromJson(vars.REGRESSION_SUITES_ARRAY_NORAM) }}
-      fail-fast: false
-    steps:
-      - name: Echo suite name
-        run: |
-          echo "Suite: ${{ matrix.suites }}"
+  stagefcm_noram:
+    name: Run E2E STAGEFCM_NORAM
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.labels.*.name, 'STAGEFCM_NORAM')
+    runs-on: self-hosted
+  stage_noram:
+    name: Run E2E STAGE_NORAM
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.labels.*.name, 'STAGE_NORAM')
+    runs-on: self-hosted
