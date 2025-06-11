@@ -11,4 +11,5 @@ jobs:
       fail-fast: false
     steps:
       - name: Echo suite name
-        run: echo "Suite: ${{ matrix.suites }}"
+        run: |
+          echo "Suite: ${{ matrix.suites }}"
