@@ -1,0 +1,14 @@
+name: e2e-debug
+on:
+  workflow_dispatch:
+jobs:
+  run-suites:
+    name: Set up an environment
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        suites: ${{ fromJson(vars.REGRESSION_SUITES_ARRAY_NORAM) }}
+      fail-fast: false
+    steps:
+      - name: Echo suite name
+        run: echo "Suite: ${{ matrix.suites }}"
